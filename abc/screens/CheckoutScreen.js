@@ -11,13 +11,15 @@ import {
 import { useCart } from '../context/CartContext';
 import { useAddress } from '../context/AddressContext';
 import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function CheckoutScreen() {
-  const { cart, increaseQuantity, decreaseQuantity, removeFromCart } = useCart();
+  const { increaseQuantity, decreaseQuantity, removeFromCart } = useCart();
   const { address } = useAddress();
   const navigation = useNavigation();
+  const route = useRoute();
+  const { selectedItems } = route.params; // Lấy selectedItems từ params
 
   const handleContinue = () => {
     if (
@@ -33,7 +35,7 @@ export default function CheckoutScreen() {
       return;
     }
 
-    navigation.navigate('Payment');
+    navigation.navigate('Payment', { selectedItems }); // Truyền selectedItems sang PaymentScreen
   };
 
   return (
@@ -65,33 +67,39 @@ export default function CheckoutScreen() {
 
         {/* Order list */}
         <Text style={styles.sectionTitle}>Order list</Text>
-        {cart.map((item) => (
-          <View key={item.id} style={styles.itemRow}>
-            <Image
-              source={{ uri: item.image }}
-              style={styles.itemImage}
-              resizeMode="contain"
-            />
-            <View style={{ flex: 1 }}>
-              <Text style={styles.itemName}>{item.name}</Text>
-              <Text style={styles.itemPrice}>
-                {item.price.toLocaleString()} VNĐ
-              </Text>
-              <View style={styles.quantityRow}>
-                <TouchableOpacity onPress={() => decreaseQuantity(item.id)}>
-                  <Text style={styles.quantityBtn}>−</Text>
-                </TouchableOpacity>
-                <Text>{item.quantity}</Text>
-                <TouchableOpacity onPress={() => increaseQuantity(item.id)}>
-                  <Text style={styles.quantityBtn}>+</Text>
-                </TouchableOpacity>
+        {selectedItems.length === 0 ? (
+          <Text style={{ textAlign: 'center', color: '#9CA3AF', marginTop: 16 }}>
+            Không có sản phẩm nào được chọn
+          </Text>
+        ) : (
+          selectedItems.map((item) => (
+            <View key={item.id} style={styles.itemRow}>
+              <Image
+                source={{ uri: item.image }}
+                style={styles.itemImage}
+                resizeMode="contain"
+              />
+              <View style={{ flex: 1 }}>
+                <Text style={styles.itemName}>{item.name}</Text>
+                <Text style={styles.itemPrice}>
+                  {item.price.toLocaleString()} VNĐ
+                </Text>
+                <View style={styles.quantityRow}>
+                  <TouchableOpacity onPress={() => decreaseQuantity(item.id)}>
+                    <Text style={styles.quantityBtn}>−</Text>
+                  </TouchableOpacity>
+                  <Text>{item.quantity}</Text>
+                  <TouchableOpacity onPress={() => increaseQuantity(item.id)}>
+                    <Text style={styles.quantityBtn}>+</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
+              <TouchableOpacity onPress={() => removeFromCart(item.id)}>
+                <Ionicons name="trash-outline" size={20} color="red" />
+              </TouchableOpacity>
             </View>
-            <TouchableOpacity onPress={() => removeFromCart(item.id)}>
-              <Ionicons name="trash-outline" size={20} color="red" />
-            </TouchableOpacity>
-          </View>
-        ))}
+          ))
+        )}
 
         {/* Button */}
         <TouchableOpacity style={styles.continueBtn} onPress={handleContinue}>
@@ -137,7 +145,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   itemImage: {
-    width: 64,
+  width: 64,
     height: 64,
     borderRadius: 8,
     marginRight: 12,
@@ -167,6 +175,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
     marginTop: 16,
+    marginBottom: 20,
   },
   continueText: {
     color: '#fff',

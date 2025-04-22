@@ -99,7 +99,7 @@ export default function LoginScreen() {
           {/* Login button */}
           <TouchableOpacity
             style={{
-              backgroundColor: '#f06292',
+              backgroundColor: 'red',
               padding: 16,
               borderRadius: 10,
               alignItems: 'center',

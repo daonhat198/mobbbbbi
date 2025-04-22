@@ -1,10 +1,8 @@
-// screens/ProductDetailScreen.js
 import React, { useState, useEffect } from 'react';
 import { View, Text, Image, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { useCart } from '../context/CartContext';
-import { useWishlist } from '../context/WishlistContext';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 
@@ -15,14 +13,10 @@ export default function ProductDetailScreen() {
 
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
-
   const [selectedColor, setSelectedColor] = useState(null);
   const [quantity, setQuantity] = useState(1);
 
   const { addToCart } = useCart();
-  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
-  const [_, forceRender] = useState(false);
-
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -73,16 +67,6 @@ export default function ProductDetailScreen() {
     navigation.navigate('MainTabs', {
       screen: 'Cart',
     });
-    
-  };
-
-  const toggleWishlist = () => {
-    if (isInWishlist(id)) {
-      removeFromWishlist(id);
-    } else {
-      addToWishlist({ id, ...product });
-    }
-    forceRender(prev => !prev); // ép re-render
   };
 
   return (
@@ -99,13 +83,6 @@ export default function ProductDetailScreen() {
 
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
         <Text style={{ fontSize: 22, fontWeight: 'bold' }}>{product.name}</Text>
-        <TouchableOpacity onPress={toggleWishlist}>
-          <Ionicons
-            name={isInWishlist(id) ? 'heart' : 'heart-outline'}
-            size={24}
-            color={isInWishlist(id) ? 'red' : 'gray'}
-          />
-        </TouchableOpacity>
       </View>
 
       <Text style={{ color: '#6B7280', marginBottom: 8 }}>{product.description}</Text>
@@ -114,7 +91,6 @@ export default function ProductDetailScreen() {
         {product.price.toLocaleString()} VNĐ
       </Text>
 
-      {/* Colors and quantity */}
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 20 }}>
         <View>
           <Text style={{ fontWeight: '600', marginBottom: 8 }}>Colors</Text>

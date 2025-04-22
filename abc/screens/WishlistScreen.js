@@ -10,15 +10,10 @@ export default function WishlistScreen() {
 
   return (
     <View style={{ flex: 1, backgroundColor: 'white', paddingTop: 60, paddingHorizontal: 16 }}>
-      {/* Nút quay lại */}
       <TouchableOpacity onPress={() => navigation.goBack()} style={{ marginBottom: 12 }}>
         <Ionicons name="arrow-back" size={24} color="black" />
       </TouchableOpacity>
-
-      {/* Header */}
       <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 20 }}>My Wishlist</Text>
-
-      {/* Danh sách wishlist */}
       {wishlist.length === 0 ? (
         <Text style={{ textAlign: 'center', color: '#9CA3AF' }}>Your wishlist is empty</Text>
       ) : (
@@ -40,29 +35,22 @@ export default function WishlistScreen() {
                 shadowRadius: 4,
               }}
             >
-              {/* Ảnh sản phẩm */}
               <Image
                 source={{ uri: item.image }}
                 style={{ width: '100%', height: 100, borderRadius: 8, marginBottom: 8 }}
                 resizeMode="contain"
               />
-
-              {/* Tên sản phẩm */}
               <Text numberOfLines={1} style={{ fontWeight: '600', marginBottom: 4 }}>
                 {item.name}
               </Text>
-
-              {/* Giá */}
               <Text style={{ color: '#6B7280', marginBottom: 8 }}>
                 {item.price.toLocaleString()} VNĐ
               </Text>
-
-              {/* Nút thả tim để xoá */}
               <TouchableOpacity
                 onPress={() => removeFromWishlist(item.id)}
                 style={{ position: 'absolute', top: 8, right: 8 }}
               >
-                <Text style={{ fontSize: 18 }}>❤️</Text>
+                <Ionicons name="heart" size={20} color="red" />
               </TouchableOpacity>
             </TouchableOpacity>
           )}
