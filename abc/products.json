@@ -1,0 +1,183 @@
+[
+  {
+    "id": "1",
+    "name": "iPhone 16 Pro",
+    "description": "Apple iPhone 13 pro designed to last by the best.",
+    "price": 12646000,
+    "rating": 4.5,
+    "reviews": 2500,
+    "colors": [
+      "#f00",
+      "#000",
+      "#fff"
+    ],
+    "image": "https://cdn.tgdd.vn/Products/Images/42/329149/iphone-16-pro-max-sa-mac-thumb-1-600x600.jpg"
+  },
+  {
+    "id": "2",
+    "name": "Xiaomi Redmi 13X",
+    "description": "Noise cancellation and immersive sound.",
+    "price": 5990000,
+    "rating": 4.7,
+    "reviews": 3100,
+    "colors": [
+      "#fff"
+    ],
+    "image": "https://cdn.tgdd.vn/Products/Images/42/335755/xiaomi-redmi-13x-titanium-thumbn-600x600.jpg"
+  },
+  {
+    "id": "3",
+    "name": "Apple Watch Series 8",
+    "description": "The ultimate device for a healthy life.",
+    "price": 11000000,
+    "rating": 4.8,
+    "reviews": 4200,
+    "colors": [
+      "#000",
+      "#fff"
+    ],
+    "image": "https://cdn.tgdd.vn/Products/Images/7077/289610/apple-watch-s8-gps-45mm-day-silicone-do-tn-600x600.jpg"
+  },
+  {
+    "id": "4",
+    "name": "MacBook Air M2",
+    "description": "Lightweight and powerful for all-day productivity.",
+    "price": 28990000,
+    "rating": 4.9,
+    "reviews": 1500,
+    "colors": [
+      "#aaa",
+      "#000"
+    ],
+    "image": "https://cdn.tgdd.vn/Products/Images/44/289472/apple-macbook-air-m2-2022-xanh-den-1-2-600x600.jpg"
+  },
+  {
+    "id": "5",
+    "name": "iPhone 15 Pro Max",
+    "description": "Flagship smartphone with advanced camera system.",
+    "price": 33990000,
+    "rating": 4.8,
+    "reviews": 3200,
+    "colors": [
+      "#000",
+      "#f4f4f4"
+    ],
+    "image": "https://cdn.tgdd.vn/Products/Images/42/305659/iphone-15-pro-max-blue-thumbnew-600x600.jpg"
+  },
+  {
+    "id": "6",
+    "name": "Samsung Galaxy S24 Ultra",
+    "description": "Premium Android phone with stylus support.",
+    "price": 31990000,
+    "rating": 4.7,
+    "reviews": 2400,
+    "colors": [
+      "#333",
+      "#666"
+    ],
+    "image": "https://cdn.tgdd.vn/Products/Images/42/319667/samsung-galaxy-s24-ultra-tim-thumbai-600x600.jpg"
+  },
+  {
+    "id": "7",
+    "name": "Apple Watch Series 9",
+    "description": "Smartwatch with health and fitness tracking.",
+    "price": 10990000,
+    "rating": 4.6,
+    "reviews": 1200,
+    "colors": [
+      "#fff",
+      "#000"
+    ],
+    "image": "https://cdn.tgdd.vn/Products/Images/7077/315998/apple-watch-s9-vien-nhom-day-vai-den-tb-600x600.jpg"
+  },
+  {
+    "id": "8",
+    "name": "AirPods Pro 2",
+    "description": "Wireless noise-cancelling earbuds.",
+    "price": 5290000,
+    "rating": 4.5,
+    "reviews": 2900,
+    "colors": [
+      "#fff"
+    ],
+    "image": "https://cdn.tgdd.vn/Products/Images/54/315014/tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-thumb-1-600x600.jpg"
+  },
+  {
+    "id": "9",
+    "name": "iPad Pro 12.9 M2",
+    "description": "High-performance tablet with Apple Pencil support.",
+    "price": 31990000,
+    "rating": 4.9,
+    "reviews": 1600,
+    "colors": [
+      "#ccc",
+      "#000"
+    ],
+    "image": "https://cdn.tgdd.vn/Products/Images/522/295466/ipad-pro-m2-12.5-wifi-bac-thumb-600x600.jpg"
+  },
+  {
+    "id": "10",
+    "name": "Xiaomi Redmi Note 13",
+    "description": "Affordable phone with powerful specs.",
+    "price": 5990000,
+    "rating": 4.4,
+    "reviews": 1800,
+    "colors": [
+      "#f00",
+      "#0f0"
+    ],
+    "image": "https://cdn.tgdd.vn/Products/Images/42/309831/xiaomi-redmi-note-13-gold-thumb-600x600.jpg"
+  },
+  {
+    "id": "11",
+    "name": "ASUS ROG Zephyrus G14",
+    "description": "Compact gaming laptop with AMD Ryzen.",
+    "price": 33990000,
+    "rating": 4.8,
+    "reviews": 700,
+    "colors": [
+      "#111",
+      "#999"
+    ],
+    "image": "https://cdn.tgdd.vn/Products/Images/44/322425/asus-gaming-rog-zephyrus-g14-ga403uu-r9-qs101w-thumb-600x600.jpg"
+  },
+  {
+    "id": "12",
+    "name": "Sony WH-1000XM5",
+    "description": "Top-tier over-ear noise cancelling headphones.",
+    "price": 8990000,
+    "rating": 4.9,
+    "reviews": 2300,
+    "colors": [
+      "#000",
+      "#ccc"
+    ],
+    "image": "https://cdnv2.tgdd.vn/mwg-static/tgdd/Products/Images/54/313692/tai-nghe-bluetooth-chup-tai-sony-wh1000xm5-thumb-5-638633901487906497-600x600.jpg"
+  },
+  {
+    "id": "13",
+    "name": "Lenovo IdeaPad Slim 5",
+    "description": "Affordable laptop for students and professionals.",
+    "price": 15990000,
+    "rating": 4.3,
+    "reviews": 1100,
+    "colors": [
+      "#888",
+      "#555"
+    ],
+    "image": "https://cdnv2.tgdd.vn/mwg-static/tgdd/Products/Images/44/322082/lenovo-ideapad-5-14iah8-i5-83bf003wvn-thumb-638754851969986179-600x600.jpg"
+  },
+  {
+    "id": "14",
+    "name": "OPPO Reno11 F",
+    "description": "Stylish phone with strong camera performance.",
+    "price": 8990000,
+    "rating": 4.6,
+    "reviews": 850,
+    "colors": [
+      "#0ff",
+      "#f0f"
+    ],
+    "image": "https://cdn.tgdd.vn/Products/Images/42/321895/oppo-reno11-f-purple-thumb-600x600.jpg"
+  }
+]
