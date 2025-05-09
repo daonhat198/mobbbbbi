@@ -9,6 +9,7 @@ import { auth } from './firebase';
 import { CartProvider } from './context/CartContext';
 import { WishlistProvider } from './context/WishlistContext';
 import { AddressProvider } from './context/AddressContext';
+import { OrderProvider } from './context/OrderContext';
 
 // Screens
 import LoginScreen from './screens/LoginScreen';
@@ -20,16 +21,17 @@ import ProductDetailScreen from './screens/ProductDetailScreen';
 import CheckoutScreen from './screens/CheckoutScreen';
 import AddressForm from './screens/AddressForm';
 import WishlistScreen from './screens/WishlistScreen';
-import PaymentScreen from './screens/PaymentScreen'; // đảm bảo đường dẫn đúng
-
-
+import PaymentScreen from './screens/PaymentScreen';
+import OrderHistoryScreen from './screens/OrderHistoryScreen';
+import AddressListScreen from './screens/AddressListScreen';
+import PersonalInfoScreen from './screens/PersonalInfoScreen';
+import HelpCenterScreen from './screens/HelpCenterScreen';
 
 import { Ionicons } from '@expo/vector-icons';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-// 📌 Tab navigator chứa các tab chính
 function MainTabs() {
   return (
     <Tab.Navigator
@@ -63,8 +65,16 @@ function MainTabs() {
           tabBarLabel: 'Giỏ hàng',
           tabBarIcon: ({ color }) => <Ionicons name="cart-outline" size={22} color={color} />,
         }}
-      />
+      />   
       <Tab.Screen
+        name="Wishlist"
+        component={WishlistScreen}
+        options={{
+          tabBarLabel: 'Yêu thích',
+          tabBarIcon: ({ color }) => <Ionicons name="heart-outline" size={22} color={color} />,
+        }}
+      />
+        <Tab.Screen
         name="Account"
         component={AccountScreen}
         options={{
@@ -91,33 +101,37 @@ export default function Navigation() {
   if (loading) return null;
 
   return (
-    <CartProvider>
-      <WishlistProvider>
-        <AddressProvider>
-          <NavigationContainer>
-            <Stack.Navigator screenOptions={{ headerShown: false }}>
-              {user ? (
-                <>
-                  <Stack.Screen name="MainTabs" component={MainTabs} />
-                  <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
-                  <Stack.Screen name="Checkout" component={CheckoutScreen} />
-                  <Stack.Screen name="AddressForm" component={AddressForm} />
-                  <Stack.Screen name="Wishlist" component={WishlistScreen} />
-                  <Stack.Screen name="Payment" component={PaymentScreen} /> 
-
-
-
-                </>
-              ) : (
-                <>
-                  <Stack.Screen name="Login" component={LoginScreen} />
-                  <Stack.Screen name="Signup" component={SignupScreen} />
-                </>
-              )}
-            </Stack.Navigator>
-          </NavigationContainer>
-        </AddressProvider>
-      </WishlistProvider>
-    </CartProvider>
+    <OrderProvider>
+      <CartProvider>
+        <WishlistProvider>
+          <AddressProvider>
+            <NavigationContainer>
+              <Stack.Navigator screenOptions={{ headerShown: false }}>
+                {user ? (
+                  <>
+                    <Stack.Screen name="MainTabs" component={MainTabs} />
+                    <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
+                    <Stack.Screen name="Checkout" component={CheckoutScreen} />
+                    <Stack.Screen name="AddressForm" component={AddressForm} />
+                    <Stack.Screen name="Wishlist" component={WishlistScreen} />
+                    <Stack.Screen name="Payment" component={PaymentScreen} />
+                    <Stack.Screen name="Account" component={AccountScreen} />
+                    <Stack.Screen name="OrderHistory" component={OrderHistoryScreen} />
+                    <Stack.Screen name="AddressList" component={AddressListScreen} />
+                    <Stack.Screen name="PersonalInfo" component={PersonalInfoScreen} />
+                    <Stack.Screen name="HelpCenter" component={HelpCenterScreen} />
+                  </>
+                ) : (
+                  <>
+                    <Stack.Screen name="Login" component={LoginScreen} />
+                    <Stack.Screen name="Signup" component={SignupScreen} />
+                  </>
+                )}
+              </Stack.Navigator>
+            </NavigationContainer>
+          </AddressProvider>
+        </WishlistProvider>
+      </CartProvider>
+    </OrderProvider>
   );
 }

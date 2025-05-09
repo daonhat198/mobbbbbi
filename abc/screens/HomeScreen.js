@@ -17,7 +17,14 @@ import { useWishlist } from '../context/WishlistContext';
 
 const screenWidth = Dimensions.get('window').width;
 
-const brands = ['All', 'Vivo', 'Samsung', 'iPhone', 'Oppo'];
+const brands = [
+  { name: 'All', category: null, icon: 'apps' },
+  { name: 'Điện Thoại', category: 1, icon: 'phone-portrait' },
+  { name: 'LapTop', category: 2, icon: 'laptop' },
+  { name: 'Watch', category: 3, icon: 'watch' },
+  { name: 'AirPort', category: 4, icon: 'headset' },
+];
+
 const featuredImage = require('../assets/Banner.png');
 
 export default function HomeScreen({ navigation }) {
@@ -57,9 +64,11 @@ export default function HomeScreen({ navigation }) {
     const matchesSearch = product.name
       .toLowerCase()
       .includes(searchQuery.toLowerCase());
-    const matchesBrand =
-      selectedBrand === 'All' || product.brand === selectedBrand;
-    return matchesSearch && matchesBrand;
+    const selectedBrandObj = brands.find((brand) => brand.name === selectedBrand);
+    const matchesCategory =
+      selectedBrandObj.category === null ||
+      product.category === selectedBrandObj.category;
+    return matchesSearch && matchesCategory;
   });
 
   const handleLoadMore = () => {
@@ -182,10 +191,10 @@ export default function HomeScreen({ navigation }) {
             key={index}
             style={{
               alignItems: 'center',
-              opacity: selectedBrand === brand ? 1 : 0.6,
+              opacity: selectedBrand === brand.name ? 1 : 0.6,
             }}
             onPress={() => {
-              setSelectedBrand(brand);
+              setSelectedBrand(brand.name);
               setVisibleProductsCount(8);
             }}
           >
@@ -196,20 +205,20 @@ export default function HomeScreen({ navigation }) {
                 borderRadius: 32,
                 backgroundColor: '#fff',
                 borderWidth: 1,
-                borderColor: selectedBrand === brand ? '#000' : '#ccc',
+                borderColor: selectedBrand === brand.name ? '#000' : '#ccc',
                 marginBottom: 6,
                 justifyContent: 'center',
                 alignItems: 'center',
               }}
             >
-              <Image
-                source={require('../assets/iphone13.png')}
-                style={{ width: 36, height: 36 }}
-                resizeMode="contain"
+              <Ionicons
+                name={brand.icon}
+                size={36}
+                color={selectedBrand === brand.name ? '#000' : '#666'}
               />
             </View>
-            <Text style={{ fontSize: 12, fontWeight: selectedBrand === brand ? 'bold' : 'normal' }}>
-              {brand}
+            <Text style={{ fontSize: 12, fontWeight: selectedBrand === brand.name ? 'bold' : 'normal' }}>
+              {brand.name}
             </Text>
           </TouchableOpacity>
         ))}
@@ -233,7 +242,7 @@ export default function HomeScreen({ navigation }) {
           <Text style={{ color: '#666' }}>5,000+ products and categories.</Text>
         </View>
         <View style={{ flexDirection: 'row', gap: 16 }}>
-          <TouchableOpacity onPress={() => navigation.navigate('Wishlist')}>
+          {/* <TouchableOpacity onPress={() => navigation.navigate('Wishlist')}>
             <View style={{ position: 'relative' }}>
               <Ionicons name="heart-outline" size={22} />
               {wishlist.length > 0 && (
@@ -256,7 +265,7 @@ export default function HomeScreen({ navigation }) {
                 </View>
               )}
             </View>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
             <View style={{ position: 'relative' }}>
               <Ionicons name="cart-outline" size={22} />

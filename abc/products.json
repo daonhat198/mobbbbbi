@@ -11,7 +11,8 @@
       "#000",
       "#fff"
     ],
-    "image": "https://cdn.tgdd.vn/Products/Images/42/329149/iphone-16-pro-max-sa-mac-thumb-1-600x600.jpg"
+    "image": "https://cdn.tgdd.vn/Products/Images/42/329149/iphone-16-pro-max-sa-mac-thumb-1-600x600.jpg",
+    "category": 1
   },
   {
     "id": "2",
@@ -23,7 +24,8 @@
     "colors": [
       "#fff"
     ],
-    "image": "https://cdn.tgdd.vn/Products/Images/42/335755/xiaomi-redmi-13x-titanium-thumbn-600x600.jpg"
+    "image": "https://cdn.tgdd.vn/Products/Images/42/335755/xiaomi-redmi-13x-titanium-thumbn-600x600.jpg",
+    "category": 1
   },
   {
     "id": "3",
@@ -36,7 +38,8 @@
       "#000",
       "#fff"
     ],
-    "image": "https://cdn.tgdd.vn/Products/Images/7077/289610/apple-watch-s8-gps-45mm-day-silicone-do-tn-600x600.jpg"
+    "image": "https://cdn.tgdd.vn/Products/Images/7077/289610/apple-watch-s8-gps-45mm-day-silicone-do-tn-600x600.jpg",
+    "category": 3
   },
   {
     "id": "4",
@@ -49,7 +52,8 @@
       "#aaa",
       "#000"
     ],
-    "image": "https://cdn.tgdd.vn/Products/Images/44/289472/apple-macbook-air-m2-2022-xanh-den-1-2-600x600.jpg"
+    "image": "https://cdn.tgdd.vn/Products/Images/44/289472/apple-macbook-air-m2-2022-xanh-den-1-2-600x600.jpg",
+    "category": 2
   },
   {
     "id": "5",
@@ -62,7 +66,8 @@
       "#000",
       "#f4f4f4"
     ],
-    "image": "https://cdn.tgdd.vn/Products/Images/42/305659/iphone-15-pro-max-blue-thumbnew-600x600.jpg"
+    "image": "https://cdn.tgdd.vn/Products/Images/42/305659/iphone-15-pro-max-blue-thumbnew-600x600.jpg",
+    "category": 1
   },
   {
     "id": "6",
@@ -75,7 +80,8 @@
       "#333",
       "#666"
     ],
-    "image": "https://cdn.tgdd.vn/Products/Images/42/319667/samsung-galaxy-s24-ultra-tim-thumbai-600x600.jpg"
+    "image": "https://cdn.tgdd.vn/Products/Images/42/319667/samsung-galaxy-s24-ultra-tim-thumbai-600x600.jpg",
+    "category": 1
   },
   {
     "id": "7",
@@ -88,7 +94,8 @@
       "#fff",
       "#000"
     ],
-    "image": "https://cdn.tgdd.vn/Products/Images/7077/315998/apple-watch-s9-vien-nhom-day-vai-den-tb-600x600.jpg"
+    "image": "https://cdn.tgdd.vn/Products/Images/7077/315998/apple-watch-s9-vien-nhom-day-vai-den-tb-600x600.jpg",
+    "category": 3
   },
   {
     "id": "8",
@@ -100,7 +107,8 @@
     "colors": [
       "#fff"
     ],
-    "image": "https://cdn.tgdd.vn/Products/Images/54/315014/tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-thumb-1-600x600.jpg"
+    "image": "https://cdn.tgdd.vn/Products/Images/54/315014/tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-thumb-1-600x600.jpg",
+    "category": 4
   },
   {
     "id": "9",
@@ -113,7 +121,8 @@
       "#ccc",
       "#000"
     ],
-    "image": "https://cdn.tgdd.vn/Products/Images/522/295466/ipad-pro-m2-12.5-wifi-bac-thumb-600x600.jpg"
+    "image": "https://cdn.tgdd.vn/Products/Images/522/295466/ipad-pro-m2-12.5-wifi-bac-thumb-600x600.jpg",
+    "category": 2
   },
   {
     "id": "10",
@@ -126,7 +135,8 @@
       "#f00",
       "#0f0"
     ],
-    "image": "https://cdn.tgdd.vn/Products/Images/42/309831/xiaomi-redmi-note-13-gold-thumb-600x600.jpg"
+    "image": "https://cdn.tgdd.vn/Products/Images/42/309831/xiaomi-redmi-note-13-gold-thumb-600x600.jpg",
+    "category": 1
   },
   {
     "id": "11",
@@ -139,7 +149,8 @@
       "#111",
       "#999"
     ],
-    "image": "https://cdn.tgdd.vn/Products/Images/44/322425/asus-gaming-rog-zephyrus-g14-ga403uu-r9-qs101w-thumb-600x600.jpg"
+    "image": "https://cdn.tgdd.vn/Products/Images/44/322425/asus-gaming-rog-zephyrus-g14-ga403uu-r9-qs101w-thumb-600x600.jpg",
+    "category": 2
   },
   {
     "id": "12",
@@ -152,7 +163,8 @@
       "#000",
       "#ccc"
     ],
-    "image": "https://cdnv2.tgdd.vn/mwg-static/tgdd/Products/Images/54/313692/tai-nghe-bluetooth-chup-tai-sony-wh1000xm5-thumb-5-638633901487906497-600x600.jpg"
+    "image": "https://cdnv2.tgdd.vn/mwg-static/tgdd/Products/Images/54/313692/tai-nghe-bluetooth-chup-tai-sony-wh1000xm5-thumb-5-638633901487906497-600x600.jpg",
+    "category": 4
   },
   {
     "id": "13",
@@ -165,7 +177,8 @@
       "#888",
       "#555"
     ],
-    "image": "https://cdnv2.tgdd.vn/mwg-static/tgdd/Products/Images/44/322082/lenovo-ideapad-5-14iah8-i5-83bf003wvn-thumb-638754851969986179-600x600.jpg"
+    "image": "https://cdnv2.tgdd.vn/mwg-static/tgdd/Products/Images/44/322082/lenovo-ideapad-5-14iah8-i5-83bf003wvn-thumb-638754851969986179-600x600.jpg",
+    "category": 2
   },
   {
     "id": "14",
@@ -178,6 +191,119 @@
       "#0ff",
       "#f0f"
     ],
-    "image": "https://cdn.tgdd.vn/Products/Images/42/321895/oppo-reno11-f-purple-thumb-600x600.jpg"
+    "image": "https://cdn.tgdd.vn/Products/Images/42/321895/oppo-reno11-f-purple-thumb-600x600.jpg",
+    "category": 1
+  },
+  {
+    "id": "15",
+    "name": "MacBook Pro",
+    "description": "Description for product 15.",
+    "price": 11490000,
+    "rating": 4.5,
+    "reviews": 650,
+    "colors": [
+      "#000",
+      "#888"
+    ],
+    "image": "https://cdn.tgdd.vn/Products/Images/44/289472/apple-macbook-air-m2-2022-xanh-den-1-2-600x600.jpg",
+    "category": 2
+  },
+  {
+    "id": "16",
+    "name": "Oppo Hello",
+    "description": "Description for product 16.",
+    "price": 11590000,
+    "rating": 4.2,
+    "reviews": 660,
+    "colors": [
+      "#000",
+      "#888"
+    ],
+    "image": "https://cdn.tgdd.vn/Products/Images/42/332234/realme-c75-8gb-128gb-thumb-1-600x600.jpg",
+    "category": 1
+  },
+  {
+    "id": "17",
+    "name": "Xiaomi Watch S4",
+    "description": "Description for product 17.",
+    "price": 11690000,
+    "rating": 4.3,
+    "reviews": 670,
+    "colors": [
+      "#000",
+      "#888"
+    ],
+    "image": "https://cdn.tgdd.vn/Products/Images/7077/334435/xiaomi-watch-s4-den-tron-tn-600x600.jpg",
+    "category": 3
+  },
+  {
+    "id": "18",
+    "name": "Product 18",
+    "description": "Description for product 18.",
+    "price": 11790000,
+    "rating": 4.4,
+    "reviews": 680,
+    "colors": [
+      "#000",
+      "#888"
+    ],
+    "image": "",
+    "category": 3
+  },
+  {
+    "id": "19",
+    "name": "Befit Watch Ultra",
+    "description": "Description for product 19.",
+    "price": 11890000,
+    "rating": 4.5,
+    "reviews": 690,
+    "colors": [
+      "#000",
+      "#888"
+    ],
+    "image": "https://cdn.tgdd.vn/Products/Images/7077/315596/befit-watch-ultra-day-silicone-tb-600x600.jpg",
+    "category": 3
+  },
+  {
+    "id": "20",
+    "name": "AirPods 4",
+    "description": "Description for product 20.",
+    "price": 11990000,
+    "rating": 4.2,
+    "reviews": 700,
+    "colors": [
+      "#000",
+      "#888"
+    ],
+    "image": "https://cdn.tgdd.vn/Products/Images/54/329154/airpods-4-mxp63-thumb-new-600x600.jpg",
+    "category": 4
+  },
+  {
+    "id": "21",
+    "name": "AirPods Max Apple",
+    "description": "Description for product 21.",
+    "price": 12090000,
+    "rating": 4.3,
+    "reviews": 710,
+    "colors": [
+      "#000",
+      "#888"
+    ],
+    "image": "https://cdn.tgdd.vn/Products/Images/54/236331/bluetooth-airpods-max-apple-thumb3-600x600.jpeg",
+    "category": 2
+  },
+  {
+    "id": "22",
+    "name": "AirPods Pro Max",
+    "description": "Description for product 22.",
+    "price": 12190000,
+    "rating": 4.4,
+    "reviews": 720,
+    "colors": [
+      "#000",
+      "#888"
+    ],
+    "image": "https://cdn.tgdd.vn/Products/Images/54/329161/airpods-max-cong-usb-c-200924-102948-834-600x600-600x600.jpg",
+    "category": 4
   }
 ]

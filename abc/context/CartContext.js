@@ -41,6 +41,11 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+  const clearCart = () => {
+  setCart([]);
+};
+
+
   const increaseQuantity = (id) => {
     setCart((prev) =>
       prev.map((item) =>
@@ -72,6 +77,7 @@ export const CartProvider = ({ children }) => {
         removeFromCart,
         increaseQuantity,
         decreaseQuantity,
+        clearCart,
       }}
     >
       {children}

@@ -12,11 +12,12 @@ import {
 import { Picker } from '@react-native-picker/picker';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
-import { useAddress } from '../context/AddressContext'; // 🔁 sửa lại đường dẫn nếu khác
+import { useAddress } from '../context/AddressContext';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function AddressForm() {
   const navigation = useNavigation();
-  const { setAddress } = useAddress();
+  const { addresses, setAddresses, setSelectedAddress } = useAddress();
 
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
@@ -64,16 +65,17 @@ export default function AddressForm() {
       return;
     }
 
-    setError('');
-    setAddress({
+    const newAddress = {
       fullName,
       phone,
       detail,
       province: provinceList.find(p => p.value === province)?.label || province,
       district: districts[province]?.find(d => d.value === district)?.label || district,
       ward: wards[district]?.find(w => w.value === ward)?.label || ward,
-    });
+    };
 
+    setAddresses([...addresses, newAddress]);
+    setSelectedAddress(newAddress);
     navigation.goBack();
   };
 
@@ -85,6 +87,14 @@ export default function AddressForm() {
         keyboardVerticalOffset={80}
       >
         <ScrollView contentContainerStyle={{ padding: 16, paddingBottom: 40 }} keyboardShouldPersistTaps="handled">
+          <View style={styles.header}>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <Ionicons name="arrow-back" size={24} color="#000" />
+            </TouchableOpacity>
+            <Text style={styles.headerTitle}>Thêm địa chỉ</Text>
+            <View style={{ width: 24 }} />
+          </View>
+
           <Text style={styles.label}>Họ và tên</Text>
           <TextInput
             value={fullName}
@@ -175,6 +185,17 @@ export default function AddressForm() {
 }
 
 const styles = StyleSheet.create({
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 20,
+    justifyContent: 'space-between',
+  },
+  headerTitle: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#000',
+  },
   label: {
     fontWeight: '600',
     fontSize: 15,

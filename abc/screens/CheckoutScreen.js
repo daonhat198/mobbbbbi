@@ -16,26 +16,26 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function CheckoutScreen() {
   const { increaseQuantity, decreaseQuantity, removeFromCart } = useCart();
-  const { address } = useAddress();
+  const { selectedAddress } = useAddress();
   const navigation = useNavigation();
   const route = useRoute();
-  const { selectedItems } = route.params; // Lấy selectedItems từ params
+  const { selectedItems } = route.params;
 
   const handleContinue = () => {
     if (
-      !address ||
-      !address.fullName ||
-      !address.phone ||
-      !address.province ||
-      !address.district ||
-      !address.ward ||
-      !address.detail
+      !selectedAddress ||
+      !selectedAddress.fullName ||
+      !selectedAddress.phone ||
+      !selectedAddress.province ||
+      !selectedAddress.district ||
+      !selectedAddress.ward ||
+      !selectedAddress.detail
     ) {
-      Alert.alert('Thiếu thông tin', 'Vui lòng nhập địa chỉ giao hàng.');
+      Alert.alert('Thiếu thông tin', 'Vui lòng chọn địa chỉ giao hàng.');
       return;
     }
 
-    navigation.navigate('Payment', { selectedItems }); // Truyền selectedItems sang PaymentScreen
+    navigation.navigate('Payment', { selectedItems });
   };
 
   return (
@@ -50,20 +50,20 @@ export default function CheckoutScreen() {
         </View>
 
         {/* Shipping Address */}
-        <Text style={styles.sectionTitle}>Shipping address</Text>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('AddressForm')}
-          style={styles.addressBox}
-        >
-          <Text style={styles.addressName}>
-            {address?.fullName || 'Chưa có tên'}
-          </Text>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+          <Text style={styles.sectionTitle}>Shipping address</Text>
+          <TouchableOpacity onPress={() => navigation.navigate('AddressList')}>
+            <Text style={{ color: '#007bff', fontWeight: '500' }}>Thay đổi</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.addressBox}>
+          <Text style={styles.addressName}>{selectedAddress?.fullName || 'Chưa có tên'}</Text>
           <Text style={styles.addressDetail}>
-            {address
-              ? `${address.detail}, ${address.ward}, ${address.district}, ${address.province}`
+            {selectedAddress
+              ? `${selectedAddress.detail}, ${selectedAddress.ward}, ${selectedAddress.district}, ${selectedAddress.province}`
               : 'Chưa có địa chỉ'}
           </Text>
-        </TouchableOpacity>
+        </View>
 
         {/* Order list */}
         <Text style={styles.sectionTitle}>Order list</Text>
@@ -124,6 +124,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontWeight: '500',
     color: '#555',
+    fontSize: 16,
   },
   addressBox: {
     backgroundColor: '#f5f5f5',
@@ -145,7 +146,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   itemImage: {
-  width: 64,
+    width: 64,
     height: 64,
     borderRadius: 8,
     marginRight: 12,

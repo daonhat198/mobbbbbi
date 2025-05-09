@@ -74,7 +74,6 @@ export default function ProductDetailScreen() {
       <TouchableOpacity onPress={() => navigation.goBack()} style={{ marginBottom: 12 }}>
         <Ionicons name="arrow-back" size={24} color="black" />
       </TouchableOpacity>
-
       <Image
         source={{ uri: product.image }}
         style={{ width: '100%', height: 250, borderRadius: 16, marginBottom: 16 }}

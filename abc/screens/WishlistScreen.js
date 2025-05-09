@@ -10,9 +10,6 @@ export default function WishlistScreen() {
 
   return (
     <View style={{ flex: 1, backgroundColor: 'white', paddingTop: 60, paddingHorizontal: 16 }}>
-      <TouchableOpacity onPress={() => navigation.goBack()} style={{ marginBottom: 12 }}>
-        <Ionicons name="arrow-back" size={24} color="black" />
-      </TouchableOpacity>
       <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 20 }}>My Wishlist</Text>
       {wishlist.length === 0 ? (
         <Text style={{ textAlign: 'center', color: '#9CA3AF' }}>Your wishlist is empty</Text>

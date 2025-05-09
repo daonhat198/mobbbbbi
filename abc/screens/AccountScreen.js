@@ -1,64 +1,164 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { signOut } from 'firebase/auth';
-import { auth } from '../firebase';
-import { useNavigation } from '@react-navigation/native';
+import { getAuth } from 'firebase/auth';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function AccountScreen() {
-  const user = auth.currentUser;
-  const navigation = useNavigation();
+export default function AccountScreen({ navigation }) {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const auth = getAuth();
+    const currentUser = auth.currentUser;
+    setUser(currentUser);
+  }, []);
 
   const handleLogout = () => {
-    signOut(auth)
-      .then(() => {
-        // Sau khi đăng xuất, người dùng sẽ tự động được chuyển về màn hình đăng nhập
-        // nhờ logic trong App.js
-      })
-      .catch((error) => console.error('Lỗi đăng xuất:', error));
+    const auth = getAuth();
+    auth.signOut().then(() => {
+      navigation.replace('Login');
+    });
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tài khoản</Text>
-      <Text style={styles.subtitle}>Email: {user?.email || 'Khách'}</Text>
-      {user && (
-        <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
-          <Ionicons name="log-out-outline" size={22} color="#EB144C" />
-          <Text style={styles.logoutText}>Đăng xuất</Text>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.profileContainer}>
+        <View style={styles.avatarContainer}>
+          <Ionicons
+            name={user?.photoURL ? 'person-circle' : 'person-circle-outline'}
+            size={100}
+            color="#333"
+          />
+        </View>
+        <Text style={styles.name}>{user?.displayName || user?.email?.split('@')[0] || 'Người dùng'}</Text>
+
+        <Text style={styles.email}>{user?.email}</Text>
+      </View>
+      <View style={styles.optionContainer}>
+        <TouchableOpacity
+          style={styles.optionRow}
+          onPress={() => navigation.navigate('PersonalInfo')}
+        >
+          <Ionicons name="person-outline" size={24} color="#333" />
+          <Text style={styles.optionText}>Thông tin cá nhân</Text>
         </TouchableOpacity>
-      )}
-    </View>
+        <TouchableOpacity
+          style={styles.optionRow}
+          onPress={() => navigation.navigate('AddressList')}
+        >
+          <Ionicons name="location-outline" size={24} color="#333" />
+          <Text style={styles.optionText}>Địa chỉ giao hàng</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.optionRow}
+          onPress={() => navigation.navigate('HelpCenter')}
+        >
+          <Ionicons name="help-circle-outline" size={24} color="#333" />
+          <Text style={styles.optionText}>Trung tâm trợ giúp</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.optionRow}
+          onPress={() => navigation.navigate('OrderHistory')}
+        >
+          <Ionicons name="cart-outline" size={24} color="#333" />
+          <Text style={styles.optionText}>Đơn hàng</Text>
+        </TouchableOpacity>
+      </View>
+
+      <TouchableOpacity onPress={handleLogout} style={styles.logoutButton}>
+        <Text style={styles.logoutText}>Đăng xuất</Text>
+      </TouchableOpacity>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#f5f5f5',
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+  },
+  profileContainer: {
+    alignItems: 'center',
+    marginBottom: 32,
+    paddingVertical: 20,
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  avatarContainer: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    backgroundColor: '#fff',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
     marginBottom: 12,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
   },
-  subtitle: {
-    fontSize: 16,
+  name: {
+    fontSize: 22,
+    fontWeight: '600',
+    color: '#333',
+  },
+  email: {
+    fontSize: 14,
     color: '#666',
-    marginBottom: 20,
+    marginTop: 4,
   },
-  logoutButton: {
+  optionContainer: {
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    padding: 16,
+    gap: 12,
+    marginBottom: 32,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  optionRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#f2f2f2',
-    padding: 10,
+    gap: 16,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
     borderRadius: 8,
+    backgroundColor: '#f9f9f9',
+  },
+  optionText: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: '#333',
+    flex: 1,
+  },
+  logoutButton: {
+    backgroundColor: '#ff4d4f',
+    paddingVertical: 14,
+    borderRadius: 12,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 3,
   },
   logoutText: {
+    color: '#fff',
+    fontWeight: '600',
     fontSize: 16,
-    color: '#EB144C',
-    marginLeft: 8,
   },
 });
